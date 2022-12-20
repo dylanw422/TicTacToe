@@ -13,6 +13,7 @@ let level = document.querySelector('#difficulty')
 
 let choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
 let cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+let corners = [squareOne, squareThree, squareSeven, squareNine]
 
 let comp;
 
@@ -137,6 +138,10 @@ function ImpossibleComputerPlay() {
     } else {
         if (squareFive.textContent === '') {
             comp = squareFive;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === '' || squareThree.textContent === '' || squareSeven.textContent === '' || squareNine.textContent === '') {
+            comp = corners[Math.floor(Math.random()*corners.length)]
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
         } else if (squareTwo.textContent === 'O' && squareFive.textContent == 'O' && squareEight.textContent === '') { //Check For O's
