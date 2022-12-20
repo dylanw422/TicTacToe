@@ -110,6 +110,22 @@ function HardComputerPlay() {
             comp = squareSeven;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === 'X' && squareSeven.textContent === 'X' && squareFour.textContent === '') {
+            comp = squareFour;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === 'X' && squareThree.textContent === 'X' && squareTwo.textContent === '') {
+            comp = squareTwo;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareNine.textContent === 'X' && squareThree.textContent === 'X' && squareSix.textContent === '') {
+            comp = squareSix;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareNine.textContent === 'X' && squareSeven.textContent === 'X' && squareEight.textContent === '') {
+            comp = squareEight;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
         } else {
             comp = cRemain[Math.floor(Math.random()*cRemain.length)]
             comp.textContent = 'O'
