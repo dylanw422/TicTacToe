@@ -17,14 +17,34 @@ let corners = [squareOne, squareThree, squareSeven, squareNine]
 
 let comp;
 
-let checkForWin = (squareOne.textContent === squareTwo.textContent === squareThree.textContent ||
-        squareOne.textContent === squareFive.textContent === squareNine.textContent ||
-        squareOne.textContent === squareFour.textContent === squareSeven.textContent ||
-        squareTwo.textContent === squareFive.textContent === squareEight.textContent ||
-        squareThree.textContent === squareSix.textContent === squareNine.textContent ||
-        squareThree.textContent == squareFive.tagName === squareSeven.textContent ||
-        squareFour.textContent === squareFive.textContent === squareSix.textContent ||
-        squareSeven.textContent === squareEight.textContent === squareNine.textContent)
+let xWin = false;
+let oWin = false;
+
+function checkXWin() {
+    if (squareOne.textContent === 'X' && squareTwo.textContent === 'X' && squareThree.textContent === 'X' ||
+        squareOne.textContent === 'X' && squareFive.textContent === 'X' && squareNine.textContent === 'X' ||
+        squareOne.textContent === 'X' && squareFour.textContent === 'X' && squareSeven.textContent === 'X' ||
+        squareTwo.textContent === 'X' && squareFive.textContent === 'X' && squareEight.textContent === 'X' ||
+        squareThree.textContent === 'X' && squareSix.textContent === 'X' && squareNine.textContent === 'X' ||
+        squareThree.textContent === 'X' && squareFive.tagName === 'X' && squareSeven.textContent === 'X' ||
+        squareFour.textContent === 'X' && squareFive.textContent === 'X' && squareSix.textContent === 'X' ||
+        squareSeven.textContent === 'X' && squareEight.textContent === 'X' && squareNine.textContent === 'X') {
+            xWin = true;
+        }
+}
+
+function checkOWin() {
+    if (squareOne.textContent === 'O' && squareTwo.textContent === 'O' && squareThree.textContent === 'O' ||
+    squareOne.textContent === 'O' && squareFive.textContent === 'O' && squareNine.textContent === 'O' ||
+    squareOne.textContent === 'O' && squareFour.textContent === 'O' && squareSeven.textContent === 'O' ||
+    squareTwo.textContent === 'O' && squareFive.textContent === 'O' && squareEight.textContent === 'O' ||
+    squareThree.textContent === 'O' && squareSix.textContent === 'O' && squareNine.textContent === 'O' ||
+    squareThree.textContent === 'O' && squareFive.tagName === 'O' && squareSeven.textContent === 'O' ||
+    squareFour.textContent === 'O' && squareFive.textContent === 'O' && squareSix.textContent === 'O' ||
+    squareSeven.textContent === 'O' && squareEight.textContent === 'O' && squareNine.textContent === 'O') {
+        oWin = true
+    }
+}
 
 function EasyComputerPlay() {
     if (cRemain.length <= 1) {
@@ -136,15 +156,15 @@ function ImpossibleComputerPlay() {
     if (cRemain.length <= 1) {
         return        
     } else {
-        if (squareFive.textContent === '') {
+        if (squareFive.textContent === '') { // play Center if Open
             comp = squareFive;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareOne.textContent === '' && squareThree.textContent === '' && squareSeven.textContent === '' && squareNine.textContent === '') {
+        } else if (squareOne.textContent === '' && squareThree.textContent === '' && squareSeven.textContent === '' && squareNine.textContent === '') { // play Corners if user takes center
             comp = corners[Math.floor(Math.random()*corners.length)]
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === 'O' && squareFive.textContent == 'O' && squareEight.textContent === '') { //Check For O's
+        } else if (squareTwo.textContent === 'O' && squareFive.textContent == 'O' && squareEight.textContent === '') { //Check For O Wins
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
@@ -224,7 +244,7 @@ function ImpossibleComputerPlay() {
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === 'X' && squareFive.textContent == 'X' && squareEight.textContent === '') { //Check For X's
+        } else if (squareTwo.textContent === 'X' && squareFive.textContent == 'X' && squareEight.textContent === '') { //Check For X Wins
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
@@ -314,24 +334,57 @@ function ImpossibleComputerPlay() {
 
 for (let i=0; i<choices.length; i++) {
     choices[i].addEventListener('click', () => {
-        console.log(level.value)
         if (choices[i].textContent === 'O' || choices[i].textContent === 'X') {
             alert('Spot Used')
         } else if (level.value === 'Easy') {
             choices[i].textContent = 'X'
             cRemain = cRemain.filter(choice => choice !== choices[i]) 
-            EasyComputerPlay()
+            checkXWin()
+            if (xWin) {
+                setTimeout(() => {
+                    cleanBoard()
+                    alert('You Win!')  
+                    xWin = false;
+                }, 250)
+            } else {
+                EasyComputerPlay()
+            }
         } else if (level.value === 'Hard') {
             choices[i].textContent = 'X'
             cRemain = cRemain.filter(choice => choice !== choices[i])
-            HardComputerPlay()
+            checkXWin()
+            if (xWin) {
+                setTimeout(() => {
+                    cleanBoard()
+                    alert('You Win!')
+                    xWin = false
+                }, 250)
+            } else {
+                HardComputerPlay()
+            }
         } else if (level.value === 'Impossible') {
             choices[i].textContent = 'X'
             cRemain = cRemain.filter(choice => choice !== choices[i])
-            ImpossibleComputerPlay()
+            if (xWin) {
+                setTimeout(() => {
+                    cleanBoard()
+                    alert('You Win!')
+                    xWin = false
+                }, 250)
+            } else {
+                ImpossibleComputerPlay()
+            }
         }
     })
 }
+
+level.addEventListener('click', () => {
+    for (let i=0; i<choices.length; i++) {
+        choices[i].textContent = '';
+        choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+        cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+    }
+})
 
 reset.addEventListener('click', () => {
     for (let i=0; i<choices.length; i++) {
@@ -340,3 +393,12 @@ reset.addEventListener('click', () => {
         cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
     }
 })
+
+
+function cleanBoard() {
+    for (let i=0; i<choices.length; i++) {
+        choices[i].textContent = '';
+        choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+        cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+    }
+}
