@@ -378,11 +378,16 @@ for (let i=0; i<choices.length; i++) {
     })
 }
 
+let oldLevel = level.value
 level.addEventListener('click', () => {
-    for (let i=0; i<choices.length; i++) {
-        choices[i].textContent = '';
-        choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
-        cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+    let newLevel = level.value
+    if (newLevel !== oldLevel) {
+        for (let i=0; i<choices.length; i++) {
+            choices[i].textContent = '';
+            choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+            cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+        }
+        oldLevel = newLevel;
     }
 })
 
