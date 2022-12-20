@@ -46,67 +46,67 @@ function HardComputerPlay() {
             comp = squareFive;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFive.textContent === squareSix.textContent && squareFour.textContent === '') {
-            comp = squareFour;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFive.textContent === squareSeven.textContent && squareThree.textContent === '') {
-            comp = squareThree;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFive.textContent === squareEight.textContent && squareTwo.textContent === '') {
-            comp = squareTwo;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFive.textContent === squareNine.textContent && squareOne.textContent === '') {
-            comp = squareOne;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareOne.textContent === squareTwo.textContent && squareThree.textContent === '') {
-            comp = squareThree;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareOne.textContent === squareFour.textContent && squareSeven.textContent === '') {
-            comp = squareSeven;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareOne.textContent === squareFive.textContent && squareNine.textContent === '') {
-            comp = squareNine;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === squareFive.textContent && squareEight.textContent === '') {
+        } else if (squareTwo.textContent === 'X' && squareFive.textContent == 'X' && squareEight.textContent === '') {
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === squareThree.textContent && squareOne.textContent === '') {
-            comp = squareOne;
+        } else if (squareFive.textContent === 'X' && squareSix.textContent === 'X' && squareFour.textContent === '') {
+            comp = squareFour;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareThree.textContent === squareFive.textContent && squareSeven.textContent === '') {
-            comp = squareSeven;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareThree.textContent === squareSix.textContent && squareNine.textContent === '') {
-            comp = squareNine;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFour.textContent === squareFive.textContent && squareSix.textContent === '') {
-            comp = squareSix;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareFour.textContent === squareSeven.textContent && squareOne.textContent === '') {
-            comp = squareOne;
-            comp.textContent = 'O'
-            cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareSix.textContent === squareNine.textContent && squareThree.textContent === '') {
+        } else if (squareFive.textContent === 'X' && squareSeven.textContent === 'X' && squareThree.textContent === '') {
             comp = squareThree;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareSeven.textContent === squareEight.textContent && squareNine.textContent === '') {
+        } else if (squareFive.textContent === 'X' && squareEight.textContent === 'X' && squareTwo.textContent === '') {
+            comp = squareTwo;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFive.textContent === 'X' && squareNine.textContent === 'X' && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === 'X' && squareTwo.textContent === 'X' && squareThree.textContent === '') {
+            comp = squareThree;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === 'X' && squareFour.textContent === 'X' && squareSeven.textContent === '') {
+            comp = squareSeven;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === 'X' && squareFive.textContent === 'X' && squareNine.textContent === '') {
             comp = squareNine;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareEight.textContent === squareNine.textContent && squareSeven.textContent === '') {
+        } else if (squareTwo.textContent === 'X' && squareThree.textContent === 'X' && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareThree.textContent === 'X' && squareFive.textContent === 'X' && squareSeven.textContent === '') {
+            comp = squareSeven;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareThree.textContent === 'X' && squareSix.textContent === 'X' && squareNine.textContent === '') {
+            comp = squareNine;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFour.textContent === 'X' && squareFive.textContent === 'X' && squareSix.textContent === '') {
+            comp = squareSix;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFour.textContent === 'X' && squareSeven.textContent === 'X' && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareSix.textContent === 'X' && squareNine.textContent === 'X' && squareThree.textContent === '') {
+            comp = squareThree;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareSeven.textContent === 'X' && squareEight.textContent === 'X' && squareNine.textContent === '') {
+            comp = squareNine;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareEight.textContent === 'X' && squareNine.textContent === 'X' && squareSeven.textContent === '') {
             comp = squareSeven;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
