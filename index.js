@@ -13,6 +13,7 @@ let reset = document.querySelector('.reset')
 let easyChoice = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
 let hardChoice = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
 let hardChoiceFilter = []
+let hardChoicePick;
 
 let choice = document.querySelector('#difficulty')
 let compChoice; 
@@ -43,6 +44,21 @@ squareOne.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareOne.textContent === 'X' && squareTwo.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else if (squareOne.textContent === 'X' && squareFour === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else if (squareOne.textContent === 'X' && squareFive === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -64,6 +80,21 @@ squareTwo.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareOne.textContent === 'X' && squareTwo.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else if (squareTwo.textContent === 'X' && squareFive.textContent === 'X') {
+                squareEight.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareEight)
+            } else if (squareThree.textContent === 'X' && squareTwo.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -85,6 +116,21 @@ squareThree.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareTwo.textContent === 'X' && squareThree.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else if (squareThree.textContent === 'X' && squareSix.textContent === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else if (squareThree.textContent === 'X' && squareFive.textContent === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -106,6 +152,21 @@ squareFour.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareOne.textContent === 'X' && squareFour.textContent === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else if (squareFour.textContent === 'X' && squareSeven.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else if (squareFour.textContent === 'X' && squareFive.textContent === 'X') {
+                squareSix.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSix)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -127,6 +188,36 @@ squareFive.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareOne.textContent === 'X' && squareFive.textContent === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else if (squareTwo.textContent === 'X' && squareFive.textContent === 'X') {
+                squareEight.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareEight)
+            } else if (squareThree.textContent === 'X' && squareFive.textContent === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else if (squareFour.textContent === 'X' && squareFive.textContent === 'X') {
+                squareSix.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSix)
+            } else if (squareFive.textContent === 'X' && squareSix.textContent === 'X') {
+                squareFour.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareFour)
+            } else if (squareSeven.textContent === 'X' && squareFive.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else if (squareEight.textContent === 'X' && squareFive.textContent === 'X') {
+                squareTwo.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareTwo)
+            } else if (squareNine.textContent === 'X' && squareFive.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -148,6 +239,21 @@ squareSix.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareThree.textContent === 'X' && squareSix.textContent === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else if (squareFive.textContent === 'X' && squareSix.textContent === 'X') {
+                squareFour.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareFour)
+            } else if (squareSix.textContent === 'X' && squareNine.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 
 })
@@ -170,6 +276,21 @@ squareSeven.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareFour.textContent === 'X' && squareSeven.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else if (squareFive.textContent === 'X' && squareSeven.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else if (squareSeven.textContent === 'X' && squareEight.textContent === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
     }
 })
 
@@ -191,6 +312,21 @@ squareEight.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
+        case 'Hard':
+            if (squareSeven.textContent === 'X' && squareEight.textContent === 'X') {
+                squareNine.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareNine)
+            } else if (squareFive.textContent === 'X' && squareEight.textContent === 'X') {
+                squareTwo.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareTwo)
+            } else if (squareEight.textContent === 'X' && squareNine.textContent === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
         }
 })
 
@@ -212,7 +348,22 @@ squareNine.addEventListener('click', () => {
                 compChoice.textContent = 'O'
             }, 1000)
             break;
-        }
+        case 'Hard':
+            if (squareSix.textContent === 'X' && squareNine.textContent === 'X') {
+                squareThree.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareThree)
+            } else if (squareFive.textContent === 'X' && squareNine.textContent === 'X') {
+                squareOne.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareOne)
+            } else if (squareEight.textContent === 'X' && squareNine.textContent === 'X') {
+                squareSeven.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== squareSeven)
+            } else {
+                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
+                compChoice.textContent = 'O'
+                easyChoice = easyChoice.filter(choice => choice !== compChoice)
+            }
+    }
 })
 
 for (let i = 0; i<easyChoice.length; i++) {
@@ -221,7 +372,6 @@ for (let i = 0; i<easyChoice.length; i++) {
             setTimeout(() => {
                 alert('You WIN!')    
             })
-
         } else if (squareOne.textContent === 'X' && squareFive.textContent === 'X' && squareNine.textContent === 'X') {
             setTimeout(() => {
                 alert('You WIN!')
