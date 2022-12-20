@@ -365,6 +365,7 @@ for (let i=0; i<choices.length; i++) {
         } else if (level.value === 'Impossible') {
             choices[i].textContent = 'X'
             cRemain = cRemain.filter(choice => choice !== choices[i])
+            checkXWin()
             if (xWin) {
                 setTimeout(() => {
                     cleanBoard()
