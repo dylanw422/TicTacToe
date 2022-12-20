@@ -9,472 +9,136 @@ let squareEight = document.querySelector('#square-eight')
 let squareNine = document.querySelector('#square-nine')
 
 let reset = document.querySelector('.reset')
+let level = document.querySelector('#difficulty')
 
-let easyChoice = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
-let hardChoice = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
-let hardChoiceFilter = []
-let hardChoicePick;
+let choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+let cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
 
-let choice = document.querySelector('#difficulty')
-let compChoice; 
+let comp;
 
-let difficulty = choice.options[choice.selectedIndex].value
-console.log(difficulty)
-
-choice.addEventListener('click',() => {
-    difficulty = choice.options[choice.selectedIndex].value
-    console.log(difficulty)
-})
-
-squareOne.addEventListener('click', () => {
-    console.log(squareOne.id)
-    if (squareOne.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareOne.textContent="X"   
-        easyChoice = easyChoice.filter(choice => choice !== squareOne)
-    }
-    switch (difficulty) {
-        case 'Easy':
-                compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                console.log(easyChoice)
-                setTimeout(() => {
-                    compChoice.textContent = 'O'
-                }, 1000)
-            break;
-        case 'Hard':
-            if (squareOne.textContent === 'X' && squareTwo.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else if (squareOne.textContent === 'X' && squareFour === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else if (squareOne.textContent === 'X' && squareFive === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareTwo.addEventListener('click', () => {
-    console.log(squareTwo.id)
-    if (squareTwo.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareTwo.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareTwo)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareOne.textContent === 'X' && squareTwo.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else if (squareTwo.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareEight.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareEight)
-                }, 500)
-            } else if (squareThree.textContent === 'X' && squareTwo.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareThree.addEventListener('click', () => {
-    console.log(squareThree.id)
-    if (squareThree.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareThree.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareThree)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareTwo.textContent === 'X' && squareThree.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else if (squareThree.textContent === 'X' && squareSix.textContent === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else if (squareThree.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareFour.addEventListener('click', () => {
-    console.log(squareFour.id)
-    if (squareFour.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareFour.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareFour)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareOne.textContent === 'X' && squareFour.textContent === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else if (squareFour.textContent === 'X' && squareSeven.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else if (squareFour.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareSix.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSix)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareFive.addEventListener('click', () => {
-    console.log(squareFive.id)
-    if (squareFive.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareFive.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareFive)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareOne.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else if (squareTwo.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareEight.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareEight)
-                }, 500)
-            } else if (squareThree.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else if (squareFour.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareSix.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSix)
-                }, 500)
-            } else if (squareFive.textContent === 'X' && squareSix.textContent === 'X') {
-                setTimeout(() => {
-                    squareFour.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareFour)
-                }, 500)
-            } else if (squareSeven.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else if (squareEight.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareTwo.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareTwo)
-                }, 500)
-            } else if (squareNine.textContent === 'X' && squareFive.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareSix.addEventListener('click', () => {
-    console.log(squareSix.id)
-    if (squareSix.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareSix.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareSix)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareThree.textContent === 'X' && squareSix.textContent === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else if (squareFive.textContent === 'X' && squareSix.textContent === 'X') {
-                setTimeout(() => {
-                    squareFour.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareFour)
-                }, 500)
-            } else if (squareSix.textContent === 'X' && squareNine.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-
-})
-
-squareSeven.addEventListener('click', () => {
-    console.log(squareSeven.id)
-    if (squareSeven.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareSeven.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareFour.textContent === 'X' && squareSeven.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else if (squareFive.textContent === 'X' && squareSeven.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else if (squareSeven.textContent === 'X' && squareEight.textContent === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-squareEight.addEventListener('click', () => {
-    console.log(squareEight.id)
-    if (squareEight.textContent === 'O') {
-        alert('This spot is already used')
-    } else {
-        squareEight.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareEight)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareSeven.textContent === 'X' && squareEight.textContent === 'X') {
-                setTimeout(() => {
-                    squareNine.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareNine)
-                }, 500)
-            } else if (squareFive.textContent === 'X' && squareEight.textContent === 'X') {
-                setTimeout(() => {
-                    squareTwo.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareTwo)
-                }, 500)
-            } else if (squareEight.textContent === 'X' && squareNine.textContent === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
+function checkForWin() {
+    if (squareOne.textContent === squareTwo.textContent === squareThree.textContent ||
+        squareOne.textContent === squareFive.textContent === squareNine.textContent ||
+        squareOne.textContent === squareFour.textContent === squareSeven.textContent ||
+        squareTwo.textContent === squareFive.textContent === squareEight.textContent ||
+        squareThree.textContent === squareSix.textContent === squareNine.textContent ||
+        squareThree.textContent == squareFive.tagName === squareSeven.textContent ||
+        squareFour.textContent === squareFive.textContent === squareSix.textContent) {
+            alert('GAME OVER!')
         }
-})
+}
 
-squareNine.addEventListener('click', () => {
-    console.log(squareNine.id)
-    if (squareNine.textContent === 'O') {
-        alert('This spot is already used')
+function EasyComputerPlay() {
+    if (cRemain.length <= 1) {
+        return
     } else {
-        squareNine.textContent = 'X'
-        easyChoice = easyChoice.filter(choice => choice !== squareNine)
-        console.log(easyChoice)
-    }
-    switch (difficulty) {
-        case 'Easy':
-            compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-            easyChoice = easyChoice.filter(choice => choice !== compChoice)
-            console.log(easyChoice)
-            setTimeout(() => {
-                compChoice.textContent = 'O'
-            }, 1000)
-            break;
-        case 'Hard':
-            if (squareSix.textContent === 'X' && squareNine.textContent === 'X') {
-                setTimeout(() => {
-                    squareThree.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareThree)
-                }, 500)
-            } else if (squareFive.textContent === 'X' && squareNine.textContent === 'X') {
-                setTimeout(() => {
-                    squareOne.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareOne)
-                }, 500)
-            } else if (squareEight.textContent === 'X' && squareNine.textContent === 'X') {
-                setTimeout(() => {
-                    squareSeven.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== squareSeven)
-                }, 500)
-            } else {
-                setTimeout(() => {
-                    compChoice = easyChoice[Math.floor(Math.random()*easyChoice.length)]
-                    compChoice.textContent = 'O'
-                    easyChoice = easyChoice.filter(choice => choice !== compChoice)
-                }, 500)
-            }
-    }
-})
-
-function cleanBoard() {
-    easyChoice = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
-    for (let i=0; i<easyChoice.length; i++) {
-            easyChoice[i].textContent = ''
+        comp = cRemain[Math.floor(Math.random()*cRemain.length)]
+        comp.textContent = 'O'
+        cRemain = cRemain.filter(choice => choice !== comp)
     }
 }
 
-for (let i = 0; i<easyChoice.length; i++) {
-    easyChoice[i].addEventListener('click', () => {
-        let xWins = (squareOne.textContent === 'X' && squareTwo.textContent === 'X' && squareThree.textContent === 'X' || squareOne.textContent === 'X' && squareFive.textContent === 'X' && squareNine.textContent === 'X' || 
-        squareOne.textContent === 'X' && squareFour.textContent === 'X' && squareSeven.textContent === 'X' || squareTwo.textContent === 'X' && squareFive.textContent === 'X' && squareEight.textContent === 'X' ||
-        squareThree.textContent === 'X' && squareSix.textContent === 'X' && squareNine.textContent === 'X' || squareThree.textContent === 'X' && squareFive.textContent === 'X' && squareSeven.textContent === 'X' ||
-        squareFour.textContent === 'X' && squareFive.textContent === 'X' && squareSix.textContent === 'X' || squareSeven.textContent === 'X' && squareEight.textContent === 'X' && squareNine.textContent === 'X')
-        console.log('xWins = ' + xWins)
+function HardComputerPlay() {
+    if (cRemain.length <= 1) {
+        return
+    } else {
+        if (squareFive.textContent === '') {
+            comp = squareFive;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFive.textContent === squareSix.textContent && squareFour.textContent === '') {
+            comp = squareFour;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFive.textContent === squareSeven.textContent && squareThree.textContent === '') {
+            comp = squareThree;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFive.textContent === squareEight.textContent && squareTwo.textContent === '') {
+            comp = squareTwo;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFive.textContent === squareNine.textContent && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === squareTwo.textContent && squareThree.textContent === '') {
+            comp = squareThree;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === squareFour.textContent && squareSeven.textContent === '') {
+            comp = squareSeven;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareOne.textContent === squareFive.textContent && squareNine.textContent === '') {
+            comp = squareNine;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareTwo.textContent === squareFive.textContent && squareEight.textContent === '') {
+            comp = squareEight;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareTwo.textContent === squareThree.textContent && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareThree.textContent === squareFive.textContent && squareSeven.textContent === '') {
+            comp = squareSeven;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareThree.textContent === squareSix.textContent && squareNine.textContent === '') {
+            comp = squareNine;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFour.textContent === squareFive.textContent && squareSix.textContent === '') {
+            comp = squareSix;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareFour.textContent === squareSeven.textContent && squareOne.textContent === '') {
+            comp = squareOne;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareSix.textContent === squareNine.textContent && squareThree.textContent === '') {
+            comp = squareThree;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareSeven.textContent === squareEight.textContent && squareNine.textContent === '') {
+            comp = squareNine;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else if (squareEight.textContent === squareNine.textContent && squareSeven.textContent === '') {
+            comp = squareSeven;
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        } else {
+            comp = cRemain[Math.floor(Math.random()*cRemain.length)]
+            comp.textContent = 'O'
+            cRemain = cRemain.filter(choice => choice !== comp)
+        }
+    }
+}
 
-        if (xWins) {
-            xThree = true;
-            setTimeout(() => {
-                cleanBoard()
-                xWins = false
-                setTimeout(() => {
-                    alert('You WIN!')
-                }, 100)
-            }, 500)
+for (let i=0; i<choices.length; i++) {
+    choices[i].addEventListener('click', () => {
+        console.log(level.value)
+        if (choices[i].textContent === 'O' || choices[i].textContent === 'X') {
+            alert('Spot Used')
+        } else if (level.value === 'Easy') {
+            choices[i].textContent = 'X'
+            cRemain = cRemain.filter(choice => choice !== choices[i]) 
+            EasyComputerPlay()
+        } else if (level.value === 'Hard') {
+            choices[i].textContent = 'X'
+            cRemain = cRemain.filter(choice => choice !== choices[i])
+            HardComputerPlay()
         }
     })
 }
 
 reset.addEventListener('click', () => {
-    cleanBoard()
+    for (let i=0; i<choices.length; i++) {
+        choices[i].textContent = '';
+        choices = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+        cRemain = [squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven, squareEight, squareNine]
+    }
 })
