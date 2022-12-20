@@ -140,7 +140,7 @@ function ImpossibleComputerPlay() {
             comp = squareFive;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareOne.textContent === '' || squareThree.textContent === '' || squareSeven.textContent === '' || squareNine.textContent === '') {
+        } else if (squareOne.textContent === '' && squareThree.textContent === '' && squareSeven.textContent === '' && squareNine.textContent === '') {
             comp = corners[Math.floor(Math.random()*corners.length)]
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
