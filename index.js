@@ -164,7 +164,7 @@ function ImpossibleComputerPlay() {
             comp = corners[Math.floor(Math.random()*corners.length)]
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === 'O' && squareFive.textContent == 'O' && squareEight.textContent === '') { //Check For O Wins
+        } else if (squareTwo.textContent === 'O' && squareFive.textContent == 'O' && squareEight.textContent === '') { //Check For O Win opportunity
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
@@ -244,7 +244,7 @@ function ImpossibleComputerPlay() {
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
-        } else if (squareTwo.textContent === 'X' && squareFive.textContent == 'X' && squareEight.textContent === '') { //Check For X Wins
+        } else if (squareTwo.textContent === 'X' && squareFive.textContent == 'X' && squareEight.textContent === '') { //Check For X Wins opportunity and Block
             comp = squareEight;
             comp.textContent = 'O'
             cRemain = cRemain.filter(choice => choice !== comp)
@@ -348,6 +348,14 @@ for (let i=0; i<choices.length; i++) {
                 }, 250)
             } else {
                 EasyComputerPlay()
+                checkOWin()
+                if (oWin) {
+                    setTimeout(() => {
+                        cleanBoard()
+                        alert('You Lose')
+                        oWin = false
+                    }, 250)
+                }
             }
         } else if (level.value === 'Hard') {
             choices[i].textContent = 'X'
@@ -361,6 +369,14 @@ for (let i=0; i<choices.length; i++) {
                 }, 250)
             } else {
                 HardComputerPlay()
+                checkOWin()
+                if (oWin) {
+                    setTimeout(() => {
+                        cleanBoard()
+                        alert('You Lose')
+                        oWin = false
+                    }, 250)
+                }
             }
         } else if (level.value === 'Impossible') {
             choices[i].textContent = 'X'
@@ -374,6 +390,14 @@ for (let i=0; i<choices.length; i++) {
                 }, 250)
             } else {
                 ImpossibleComputerPlay()
+                checkOWin()
+                if (oWin) {
+                    setTimeout(() => {
+                        cleanBoard()
+                        alert('You Lose')
+                        oWin = false
+                    }, 250)
+                }
             }
         }
     })
