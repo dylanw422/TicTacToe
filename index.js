@@ -26,7 +26,7 @@ function checkXWin() {
         squareOne.textContent === 'X' && squareFour.textContent === 'X' && squareSeven.textContent === 'X' ||
         squareTwo.textContent === 'X' && squareFive.textContent === 'X' && squareEight.textContent === 'X' ||
         squareThree.textContent === 'X' && squareSix.textContent === 'X' && squareNine.textContent === 'X' ||
-        squareThree.textContent === 'X' && squareFive.tagName === 'X' && squareSeven.textContent === 'X' ||
+        squareThree.textContent === 'X' && squareFive.textContent === 'X' && squareSeven.textContent === 'X' ||
         squareFour.textContent === 'X' && squareFive.textContent === 'X' && squareSix.textContent === 'X' ||
         squareSeven.textContent === 'X' && squareEight.textContent === 'X' && squareNine.textContent === 'X') {
             xWin = true;
