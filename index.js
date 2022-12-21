@@ -39,7 +39,7 @@ function checkOWin() {
     squareOne.textContent === 'O' && squareFour.textContent === 'O' && squareSeven.textContent === 'O' ||
     squareTwo.textContent === 'O' && squareFive.textContent === 'O' && squareEight.textContent === 'O' ||
     squareThree.textContent === 'O' && squareSix.textContent === 'O' && squareNine.textContent === 'O' ||
-    squareThree.textContent === 'O' && squareFive.tagName === 'O' && squareSeven.textContent === 'O' ||
+    squareThree.textContent === 'O' && squareFive.textContent === 'O' && squareSeven.textContent === 'O' ||
     squareFour.textContent === 'O' && squareFive.textContent === 'O' && squareSix.textContent === 'O' ||
     squareSeven.textContent === 'O' && squareEight.textContent === 'O' && squareNine.textContent === 'O') {
         oWin = true
